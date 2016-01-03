@@ -1,45 +1,14 @@
-# Minecraft
+# Mine.py
 
 ## Objective
 
-Simple Minecraft-inspired demo written in Python and Pyglet.
-
-http://www.youtube.com/watch?v=kC3lwK631X8
-
-This is a long endeavor that already was forked more than 600 times in [many different directions](https://github.com/fogleman/Minecraft/network).
-
-**Like this project?**
-
-You might also like my other Minecraft clone written in C using modern OpenGL (GL shader language). It performs better, has better terrain generation and saves state to a sqlite database. See here:
-
-https://github.com/fogleman/Craft
-
-## Goals and Vision
-
-I would like to see this project turn into an educational tool. Kids love Minecraft and Python is a great first language.
-This is a good opportunity to get children excited about programming.
-
-The code should become well commented and more easily configurable. It should be easy to make some simple changes
-and see the results quickly.
-
-I think it would be great to turn the project into more of a library / API... a Python package that you import and then use / configure to setup a world and run it. Something along these lines...
-
-    import mc
-    
-    world = mc.World(...)
-    world.set_block(x, y, z, mc.DIRT)
-    mc.run(world)
-
-The API could contain functionality for the following:
-
-- Easily configurable parameters like gravity, jump velocity, walking speed, etc.
-- Hooks for terrain generation.
+A python implementation from scratch of the popular infinite world game. (Work in progress)
 
 ## Two different approaches
 
-[main.py](main.py) is the original code created by fogleman. It's a showcase of the power and simplicity of Python. Having only 2 files, main.py and texture.png, you should be all set to run a complete version of this Minecraft clone.
+[main.py](main.py) is the original code created by [fogleman](https://github.com/fogleman/Minecraft). It's a showcase of the power and simplicity of Python. Having only 2 files, main.py and texture.png, you should be all set to run a complete version of this Minecraft clone.
 
-[mine.py](mine.py) is intended to be the fully functional API proposed in the *Goals and Vision* section. It was refactored to be more object-oriented and easier to maintain and expand. With this version you should be able to use a text-based rendered version of the world generated. Read more about that below on the *Into the future* section.
+[mine.py](mine.py) is intended to be a fully functional API. It was refactored to be more object-oriented and easier to maintain and expand. With this version you should be able to use a text-based rendered version of the world generated. Read more about that below on the *Into the future* section.
 
 You can read details about the evolution of this code in the [history/README.md](https://github.com/ocarneiro/mine.py/tree/master/history) file.
 
@@ -57,10 +26,10 @@ You can read details about the evolution of this code in the [history/README.md]
 
 ## How to Run
 
-    git clone https://github.com/fogleman/Minecraft.git
-    cd Minecraft
+    git clone https://github.com/ocarneiro/mine.py.git
+    cd mine.py
     pip install -r requirements.txt
-    python main.py
+    python mine.py
 
 ## How to Play
 
@@ -91,10 +60,10 @@ You can read details about the evolution of this code in the [history/README.md]
 
 ### Text UI approach
 
-You can run this game using 
+You can run this game using
 
     python -i mine.py
- 
+
 And then explore some of the objects already created. You can see an ASCII representation of the generated world, for instance:
 
     >>> txtmap.draw(world)
@@ -104,7 +73,7 @@ And if you want to see the same map using as references other heights (y=2, for 
     >>> txtmap.draw(world, 2)
     >>> # or #
     >>> txtmap.draw(world, y=2)
- 
+
 It's been a lot of fun to play with text representations of the blocks, so you should see more commits in this direction in the near future.
 
 ### Client GUI approach
