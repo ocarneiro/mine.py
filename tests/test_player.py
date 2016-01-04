@@ -46,3 +46,12 @@ def test_player_should_start_clean():
     player = Player()
     assert not player.flying
     assert player.position == (0, 0, 0)
+    assert player.rotation == (0, 0)
+
+
+def test_player_move_forward():
+    player = Player()
+    x_before = player.position[0]
+    player.move(1, 0, 0)
+    x_after = player.position[0]
+    assert x_after == x_before + 1

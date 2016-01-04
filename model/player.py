@@ -18,3 +18,11 @@ class Player:
         # to 90 (looking straight up).
         # The horizontal rotation range is unbounded.
         self.rotation = (0, 0)
+
+    def move(self, x, y, z):
+        """
+        Changes the position of the player in increments for each axis.
+        ex: move(1, 0, 0) moves the player 1 unit in x direction
+        """
+        oldx, oldy, oldz = self.position
+        self.position = (oldx + x, oldy + y, oldz + z)
