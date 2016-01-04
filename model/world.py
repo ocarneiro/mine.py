@@ -4,6 +4,11 @@ WORLD_SIZE = 160
 
 
 class World:
+    """
+    All the information about the world where the action takes place.
+    The position of blocks and players is kept here.
+
+    """
 
     def __init__(self, player=None):
         # model is a dict with positions (x,y,z) as keys
