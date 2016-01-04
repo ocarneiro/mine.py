@@ -26,3 +26,27 @@ class Player:
         """
         oldx, oldy, oldz = self.position
         self.position = (oldx + x, oldy + y, oldz + z)
+
+    def rotate(self, angle):
+        """
+        Rotates player around y axis (turns from side to side)
+        """
+        old_angle, tilt = self.rotation
+        new_angle = old_angle + angle
+        while new_angle > 90:
+            new_angle = new_angle - 90
+        while angle < -90:
+            new_angle = new_angle + 90
+        self.rotation = (new_angle, tilt)
+
+    def tilt(self, angle):
+        """
+        Tilts player around x or z axis (looks up or down)
+        """
+        rot_angle, old_tilt = self.rotation
+        new_tilt = old_tilt + angle
+        while new_tilt > 90:
+            new_tilt = new_tilt - 90
+        while angle < -90:
+            new_tilt = new_tilt + 90
+        self.rotation = (rot_angle, new_tilt)

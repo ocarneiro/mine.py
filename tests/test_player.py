@@ -55,3 +55,26 @@ def test_player_move_forward():
     player.move(1, 0, 0)
     x_after = player.position[0]
     assert x_after == x_before + 1
+
+
+def test_player_rotates():
+    player = Player()
+    rot_before = player.rotation[0]
+    player.rotate(90)
+    rot_after = player.rotation[0]
+    assert rot_after == rot_before + 90
+
+
+def test_player_doesnt_rotate_over_90_degrees():
+    player = Player()
+    player.rotation = (85, 0)
+    player.rotate(10)
+    assert (5, 0) == player.rotation
+
+
+def test_player_tilts():
+    player = Player()
+    tilt_before = player.rotation[1]
+    player.tilt(45)
+    tilt_after = player.rotation[1]
+    assert tilt_after == tilt_before + 45
