@@ -1,3 +1,5 @@
+from model.block import GRASS, SAND, BRICK, STONE
+
 class Player:
     """
     Defines the character playing the game.
@@ -18,6 +20,13 @@ class Player:
         # to 90 (looking straight up).
         # The horizontal rotation range is unbounded.
         self.rotation = (0, 0)
+
+        # A list of blocks the player can place. Hit num keys to cycle.
+        self.inventory = [BRICK, GRASS, SAND]
+
+        # The current block the user can place. Hit num keys to cycle.
+        self.block = self.inventory[0]
+
 
     def move(self, x, y, z):
         """
