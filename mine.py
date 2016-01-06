@@ -1,13 +1,7 @@
-from __future__ import division
 from pyglet.gl import *
-import sys
-from gui.window import Window, Model
+from gui.window import Window
 from model.world import World
 from txtui import txtmap
-
-# Python3 = uses range instead of xrange
-if sys.version_info[0] >= 3:
-    xrange = range
 
 
 def setup_fog():
