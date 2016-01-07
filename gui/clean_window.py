@@ -3,8 +3,9 @@ import random
 import time
 
 from collections import deque
+import pyglet
 from pyglet import image
-from pyglet.gl import *
+from pyglet import gl
 from pyglet.graphics import TextureGroup
 from pyglet.window import key, mouse
 
@@ -57,13 +58,13 @@ class Window(pyglet.window.Window):
 
         """
         width, height = self.get_size()
-        glDisable(GL_DEPTH_TEST)
-        glViewport(0, 0, width, height)
-        glMatrixMode(GL_PROJECTION)
-        glLoadIdentity()
-        glOrtho(0, width, 0, height, -1, 1)
-        glMatrixMode(GL_MODELVIEW)
-        glLoadIdentity()
+        gl.glDisable(gl.GL_DEPTH_TEST)
+        gl.glViewport(0, 0, width, height)
+        gl.glMatrixMode(gl.GL_PROJECTION)
+        gl.glLoadIdentity()
+        gl.glOrtho(0, width, 0, height, -1, 1)
+        gl.glMatrixMode(gl.GL_MODELVIEW)
+        gl.glLoadIdentity()
 
     def on_draw(self):
         """ Called by pyglet to draw the canvas.
@@ -91,17 +92,17 @@ def setup():
 
     """
     # Set the color of "clear", i.e. the sky, in rgba.
-    glClearColor(0.5, 0.69, 1.0, 1)
+    gl.glClearColor(0.5, 0.69, 1.0, 1)
     # Enable culling (not rendering) of back-facing facets -- facets that aren't
     # visible to you.
-    glEnable(GL_CULL_FACE)
+    gl.glEnable(gl.GL_CULL_FACE)
     # Set the texture minification/magnification function to GL_NEAREST (nearest
     # in Manhattan distance) to the specified texture coordinates. GL_NEAREST
     # "is generally faster than GL_LINEAR, but it can produce textured images
     # with sharper edges because the transition between texture elements is not
     # as smooth."
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+    gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_NEAREST)
+    gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_NEAREST)
 
 
 def main():
